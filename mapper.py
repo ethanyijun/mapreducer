@@ -50,9 +50,14 @@ class RatingFilter(Filter):
     """
 
     def __init__(self, start_movieid, end_movieid):
-        # TODO
-        raise NotImplementedError
+        self.start_movieid = start_movieid
+        self.end_movieid = end_movieid
 
     def filter(self, line):
-        # TODO
-        raise NotImplementedError
+        items = line.split()
+        if len(items) < 3:
+            return None
+        if int(self.end_movieid) >= int(items[1]) >= int(self.start_movieid):
+            return [items[1],items[2]]
+        else:
+            return None

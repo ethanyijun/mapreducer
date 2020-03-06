@@ -18,7 +18,7 @@ def map_reduce(file_name, mapper, reducer):
         for line in file:
             num_lines += 1
             result = mapper.map(line.strip())
-
+            #print (result)
             if result:
                 num_records += 1
                 if result[0] not in group_by_key:

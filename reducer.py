@@ -15,5 +15,4 @@ class RatingReducer(Reducer):
     """
 
     def reduce(self, key, values):
-        # TODO
-        raise NotImplementedError
+        return round(sum(list(map(float, values))) / len(values), 1)
