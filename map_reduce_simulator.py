@@ -25,6 +25,8 @@ def map_reduce(file_name, mapper, reducer):
                     group_by_key[result[0]] = []
 
                 group_by_key[result[0]].append(result[1])
+                if result[0].strip() == 1:
+                    print ("bingo")
 
     for records in group_by_key.items():
         res = reducer.reduce(records[0], sorted(records[1]))

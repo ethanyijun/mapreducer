@@ -57,7 +57,9 @@ class RatingFilter(Filter):
         items = line.split()
         if len(items) < 3:
             return None
-        if int(self.end_movieid) >= int(items[1]) >= int(self.start_movieid):
+        elif (int(items[2]) > 5): 
+            return None
+        if (int(items[1]) >= int(self.start_movieid)) & (int(items[1]) <= int(self.end_movieid)):
             return [items[1],items[2]]
         else:
             return None
